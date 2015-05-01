@@ -1,0 +1,545 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE MudletPackage>
+<MudletPackage version="1.0">
+    <TriggerPackage>
+        <TriggerGroup isActive="yes" isFolder="yes" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+            <name>Institute</name>
+            <script></script>
+            <triggerType>0</triggerType>
+            <conditonLineDelta>0</conditonLineDelta>
+            <mStayOpen>0</mStayOpen>
+            <mCommand></mCommand>
+            <packageName></packageName>
+            <mFgColor>#ff0000</mFgColor>
+            <mBgColor>#ffff00</mBgColor>
+            <mSoundFile></mSoundFile>
+            <colorTriggerFgColor>#000000</colorTriggerFgColor>
+            <colorTriggerBgColor>#000000</colorTriggerBgColor>
+            <regexCodeList/>
+            <regexCodePropertyList/>
+            <TriggerGroup isActive="yes" isFolder="yes" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+                <name>Tarot</name>
+                <script></script>
+                <triggerType>0</triggerType>
+                <conditonLineDelta>0</conditonLineDelta>
+                <mStayOpen>0</mStayOpen>
+                <mCommand></mCommand>
+                <packageName></packageName>
+                <mFgColor>#ff0000</mFgColor>
+                <mBgColor>#ffff00</mBgColor>
+                <mSoundFile></mSoundFile>
+                <colorTriggerFgColor>#000000</colorTriggerFgColor>
+                <colorTriggerBgColor>#000000</colorTriggerBgColor>
+                <regexCodeList/>
+                <regexCodePropertyList/>
+                <Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+                    <name>Soulless</name>
+                    <script>if matches[3] == nil or tonumber(matches[3]) &lt; 10 then
+	mm.doadd(&quot;rub soulless on &quot; .. institute.target)
+elseif tonumber(matches[3]) &gt;= 10 then
+	mm.doadd(&quot;fling soulless at &quot; .. institute.target)
+end</script>
+                    <triggerType>0</triggerType>
+                    <conditonLineDelta>0</conditonLineDelta>
+                    <mStayOpen>0</mStayOpen>
+                    <mCommand></mCommand>
+                    <packageName></packageName>
+                    <mFgColor>#ff0000</mFgColor>
+                    <mBgColor>#ffff00</mBgColor>
+                    <mSoundFile></mSoundFile>
+                    <colorTriggerFgColor>#000000</colorTriggerFgColor>
+                    <colorTriggerBgColor>#000000</colorTriggerBgColor>
+                    <regexCodeList>
+                        <string>^You sniff the card of the Soulless, and sense it has been imprinted upon (\w+) (\d+) times\.$</string>
+                        <string>This Soulless card has not yet been imprinted on anyone.</string>
+                    </regexCodeList>
+                    <regexCodePropertyList>
+                        <integer>1</integer>
+                        <integer>3</integer>
+                    </regexCodePropertyList>
+                </Trigger>
+            </TriggerGroup>
+            <Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+                <name>Logout</name>
+                <script>institute_saveConfig()</script>
+                <triggerType>0</triggerType>
+                <conditonLineDelta>0</conditonLineDelta>
+                <mStayOpen>0</mStayOpen>
+                <mCommand></mCommand>
+                <packageName></packageName>
+                <mFgColor>#ff0000</mFgColor>
+                <mBgColor>#ffff00</mBgColor>
+                <mSoundFile></mSoundFile>
+                <colorTriggerFgColor>#000000</colorTriggerFgColor>
+                <colorTriggerBgColor>#000000</colorTriggerBgColor>
+                <regexCodeList>
+                    <string>You grow still and begin to pray silently for preservation of your soul while you are out of the land.</string>
+                </regexCodeList>
+                <regexCodePropertyList>
+                    <integer>3</integer>
+                </regexCodePropertyList>
+            </Trigger>
+        </TriggerGroup>
+    </TriggerPackage>
+    <TimerPackage/>
+    <AliasPackage>
+        <AliasGroup isActive="yes" isFolder="yes">
+            <name>Institute</name>
+            <script></script>
+            <command></command>
+            <packageName></packageName>
+            <regex></regex>
+            <AliasGroup isActive="yes" isFolder="yes">
+                <name>Target</name>
+                <script></script>
+                <command></command>
+                <packageName></packageName>
+                <regex></regex>
+                <Alias isActive="yes" isFolder="no">
+                    <name>Target</name>
+                    <script>institute.target = matches[2]
+institute_highlightTarget()
+mm.echof(&quot;Target set to &quot; .. institute.target)</script>
+                    <command></command>
+                    <packageName></packageName>
+                    <regex>^t (\w+)$</regex>
+                </Alias>
+                <Alias isActive="yes" isFolder="no">
+                    <name>Target colour</name>
+                    <script>institute.targetcolour = matches[2]
+institute_highlightTarget()
+institute_saveConfig()
+mm.echof(&quot;Target colour set to &quot; .. institute.targetcolour)</script>
+                    <command></command>
+                    <packageName></packageName>
+                    <regex>^tcol (\w+)$</regex>
+                </Alias>
+            </AliasGroup>
+            <AliasGroup isActive="yes" isFolder="yes">
+                <name>Tarot</name>
+                <script></script>
+                <command></command>
+                <packageName></packageName>
+                <regex></regex>
+                <Alias isActive="yes" isFolder="no">
+                    <name>Fling</name>
+                    <script>if (myinv[&quot;a tarot card inscribed with the &quot; .. firstToUpper(matches[2])] == nil or next(myinv[&quot;a tarot card inscribed with the &quot; .. firstToUpper(matches[2])]) == nil) and matches[2] ~= &quot;hermit&quot; then
+	mm.doaddfree(&quot;outd &quot; .. matches[2])
+end
+
+if matches[2] == &quot;healer&quot; or matches[2] == &quot;emperor&quot; or matches[2] == &quot;magician&quot; or matches[2] == &quot;hangedman&quot; or matches[2] == &quot;empress&quot; or matches[2] == &quot;teacher&quot; or matches[2] == &quot;lovers&quot; or matches[2] == &quot;moon&quot; or matches[2] == &quot;dreamer&quot; or matches[2] == &quot;judge&quot; or matches[2] == &quot;aeon&quot; then
+	mm.doadd(&quot;fling &quot;.. matches[2] .. &quot; at &quot; .. institute.target)
+elseif matches[2] == &quot;fool&quot; or matches[2] == &quot;warrior&quot; or matches[2] == &quot;fall&quot; or matches[2] == &quot;starleaper&quot; or matches[2] == &quot;catacombs&quot; or matches[2] == &quot;princess&quot; or matches[2] == &quot;enigma&quot; or matches[2] == &quot;world&quot; then
+	mm.doadd(&quot;fling &quot;.. matches[2] .. &quot; at ground&quot;)
+elseif matches[2] == &quot;hermit&quot; then
+	if myinv[&quot;a tarot card inscribed with the &quot; .. firstToUpper(matches[2])] == nil or next(myinv[&quot;a tarot card inscribed with the &quot; .. firstToUpper(matches[2])]) == nil then
+		mm.doaddfree(&quot;outd hermit$activate hermit&quot;)
+	else
+		mm.doadd(&quot;fling &quot;.. matches[2] .. &quot; at ground&quot;)
+	end
+elseif matches[2] == &quot;lust&quot; then
+	if matches[3] == &quot;g&quot; then
+		mm.doadd(&quot;fling &quot;.. matches[2] .. &quot; at ground&quot;)
+	else
+		mm.doadd(&quot;fling &quot;.. matches[2] .. &quot; at &quot; .. institute.target)
+	end
+elseif matches[2] == &quot;soulless&quot; then
+	mm.doadd(&quot;sniff &quot; .. matches[2])
+end </script>
+                    <command></command>
+                    <packageName></packageName>
+                    <regex>^fl (\w+) ?(g)?$</regex>
+                </Alias>
+                <Alias isActive="yes" isFolder="no">
+                    <name>Activate hermit</name>
+                    <script>mm.doaddfree(&quot;outd hermit$activate hermit&quot;)</script>
+                    <command></command>
+                    <packageName></packageName>
+                    <regex>^acther$</regex>
+                </Alias>
+            </AliasGroup>
+            <AliasGroup isActive="yes" isFolder="yes">
+                <name>Aeonics</name>
+                <script></script>
+                <command></command>
+                <packageName></packageName>
+                <regex></regex>
+                <Alias isActive="yes" isFolder="no">
+                    <name>Timechant</name>
+                    <script>if matches[2] == &quot;mindclock&quot; or matches[2] == &quot;insight&quot; or matches[2] == &quot;timelessbody&quot; or matches[2] == &quot;alacrity&quot; or matches[2] == &quot;temporalbonds&quot; or matches[2] == &quot;pastglimpse&quot; or matches[2] == &quot;futureglimpse&quot; or matches[2] == &quot;switchfate&quot; or matches[2] == &quot;aeonfield&quot; or matches[2] == &quot;foresight&quot; or matches[2] == &quot;paradox&quot; then
+	mm.doadd(&quot;timechant &quot; .. matches[2])
+elseif matches[2] == &quot;aeon&quot; or matches[2] == &quot;timewarp&quot; or matches[2] == &quot;timeechoes&quot; or matches[2] == &quot;oracle&quot; or matches[2] == &quot;contingency&quot; or matches[2] == &quot;displacement&quot; then
+	mm.doadd(&quot;timechant &quot; .. matches[2] .. &quot; &quot; .. institute.target)
+elseif matches[2] == &quot;timequake&quot; then
+	if matches[3] == &quot;t&quot; then
+		mm.doadd(&quot;timechant &quot; .. matches[2] .. &quot; &quot; .. institute.target)
+	else
+		mm.doadd(&quot;timechant &quot;.. matches[2])
+	end
+end
+
+</script>
+                    <command></command>
+                    <packageName></packageName>
+                    <regex>^tc (\w+) ?(t)?$</regex>
+                </Alias>
+            </AliasGroup>
+            <AliasGroup isActive="yes" isFolder="yes">
+                <name>Harmonics</name>
+                <script></script>
+                <command></command>
+                <packageName></packageName>
+                <regex></regex>
+                <Alias isActive="yes" isFolder="no">
+                    <name>Crystalspin all gems</name>
+                    <script>mm.doadd(&quot;ogr turquoise$crystalspin turquoise&quot;)
+mm.doadd(&quot;ogr jade$crystalspin jade&quot;)
+mm.doadd(&quot;ogr garnet$crystalspin garnet&quot;)
+mm.doadd(&quot;ogr beryl$crystalspin beryl&quot;)
+mm.doadd(&quot;ogr opal$crystalspin opal&quot;)
+mm.doadd(&quot;ogr onyx$crystalspin onyx&quot;)
+mm.doadd(&quot;ogr bloodstone$crystalspin bloodstone&quot;)
+mm.doadd(&quot;ogr amethyst$crystalspin amethyst&quot;)
+mm.doadd(&quot;ogr emerald$crystalspin emerald&quot;)
+mm.doadd(&quot;ogr sapphire$crystalspin sapphire&quot;)
+mm.doadd(&quot;ogr diamond$crystalspin diamond&quot;)
+mm.doadd(&quot;crystalplex deactivate all&quot;)</script>
+                    <command></command>
+                    <packageName></packageName>
+                    <regex>^cpall$</regex>
+                </Alias>
+                <Alias isActive="yes" isFolder="no">
+                    <name>Crystalspin single gem</name>
+                    <script>if matches[2] == &quot;ruby&quot; or matches[2] == &quot;resonance&quot; or matches[2] == &quot;convoke&quot; or matches[2] == &quot;shockstone&quot; or matches[2] == &quot;heartstone&quot; or matches[2] == &quot;shatterplex&quot; then
+	if matches[2] == &quot;ruby&quot; then
+		mm.doaddfree(&quot;ogr ruby&quot;)
+	elseif matches[2] == &quot;resonance&quot; then
+		mm.doaddfree(&quot;ogr turquoise$ogr jade&quot;)
+	elseif matches[2] == &quot;convoke&quot; then
+		mm.doaddfree(&quot;ogr onyx$ogr beryl$ogr garnet&quot;)
+	elseif matches[2] == &quot;shockstone&quot; then
+		mm.doaddfree(&quot;ogr jade$ogr beryl$ogr onyx$ogr sapphire&quot;)
+	elseif matches[2] == &quot;heartstone&quot; then
+		mm.doaddfree(&quot;ogr diamond$ogr ruby$ogr onyx$ogr sapphire&quot;)
+	end
+	mm.doadd(&quot;crystalspin &quot; .. matches[2] .. &quot; &quot; .. institute.target)
+elseif matches[2] == &quot;mendingstone&quot; or matches[2] == &quot;balestone&quot; or matches[2] == &quot;glorygem&quot; then
+	if matches[2] == &quot;mendingstone&quot; then
+		mm.doaddfree(&quot;ogr garnet$ogr jade&quot;)
+	elseif matches[2] == &quot;balestone&quot; then
+		mm.doaddfree(&quot;ogr garnet$ogr beryl&quot;)
+	elseif matches[2] == &quot;glorygem&quot; then
+		mm.doaddfree(&quot;ogr opal$ogr jade&quot;)
+	end
+	mm.doadd(&quot;crystalspin &quot; .. matches[2])
+elseif matches[2] == &quot;malefactgem&quot; then
+	mm.doaddfree(&quot;ogr onyx$ogr amethyst$ogr bloodstone&quot;)
+	if matches[3] == nil or matches[3] == &quot;e&quot; or matches[3] == &quot;enemies&quot; then
+		mm.doadd(&quot;crystalspin malefactgem enemies&quot;)
+	elseif matches[3] == &quot;p&quot; or matches[3] == &quot;paralysis&quot; or matches[3] == &quot;c&quot; or matches[3] == &quot;clumsiness&quot; or matches[3] == &quot;a&quot; or matches[3] == &quot;anorexia&quot; or matches[3] == &quot;i&quot; or matches[3] == &quot;impatience&quot; then
+		if matches[3] == &quot;p&quot; then matches[3] = &quot;paralysis&quot; end
+		if matches[3] == &quot;c&quot; then matches[3] = &quot;clumsiness&quot; end
+		if matches[3] == &quot;a&quot; then matches[3] = &quot;anorexia&quot; end
+		if matches[3] == &quot;i&quot; then matches[3] = &quot;impatience&quot; end
+		mm.doadd(&quot;crystalspin malefactgem &quot; .. institute.target .. &quot; &quot; .. matches[3])
+	end		
+else
+	mm.doadd(&quot;ogr &quot; .. matches[2] .. &quot;$crystalspin &quot; .. matches[2])
+end</script>
+                    <command></command>
+                    <packageName></packageName>
+                    <regex>^cp (\w+) ?(\w+)?$</regex>
+                </Alias>
+                <Alias isActive="yes" isFolder="no">
+                    <name>Crystalplex target hostile</name>
+                    <script>mm.doadd(&quot;crystalplex target garnet &quot; .. institute.target .. &quot;$crystalplex target opal &quot; .. institute.target .. &quot;$crystalplex target onyx &quot; .. institute.target .. &quot;$crystalplex target bloodstone &quot; .. institute.target .. &quot;$crystalplex target sapphire &quot; .. institute.target)
+</script>
+                    <command></command>
+                    <packageName></packageName>
+                    <regex>^cphostile$</regex>
+                </Alias>
+                <Alias isActive="yes" isFolder="no">
+                    <name>Crystalplex target friendly</name>
+                    <script>if matches[2] then
+	mm.doadd(&quot;crystalplex target jade &quot; .. matches[2] .. &quot;$crystalplex target beryl &quot; .. matches[2] .. &quot;$crystalplex target amethyst &quot; .. matches[2] .. &quot;$crystalplex target emerald &quot; .. matches[2] .. &quot;$crystalplex target diamond &quot; .. matches[2])
+else
+	mm.doadd(&quot;crystalplex target jade me$crystalplex target beryl me$crystalplex target amethyst me$crystalplex target emerald me$crystalplex target diamond me$crystalplex target turquoise me&quot;)
+end 
+
+</script>
+                    <command></command>
+                    <packageName></packageName>
+                    <regex>^cpfriendly ?(\w+)?$</regex>
+                </Alias>
+            </AliasGroup>
+        </AliasGroup>
+    </AliasPackage>
+    <ActionPackage/>
+    <ScriptPackage>
+        <ScriptGroup isActive="yes" isFolder="yes">
+            <name>Institute</name>
+            <packageName></packageName>
+            <script>-------------------------------------------------
+--         Put your Lua functions here.        --
+--                                             --
+-- Note that you can also use external Scripts --
+-------------------------------------------------
+</script>
+            <eventHandlerList/>
+            <Script isActive="yes" isFolder="no">
+                <name>Defaults</name>
+                <packageName></packageName>
+                <script>institute = institute or {}
+myinv = myinv or {}
+
+institute_loadConfig()
+
+if institute.initialized ~= true then
+	institute.target = &quot;Portius&quot;
+	institute.targetcolour = &quot;red&quot;
+	institute.initialized = true
+
+	institute_saveConfig()
+end</script>
+                <eventHandlerList/>
+            </Script>
+            <Script isActive="yes" isFolder="no">
+                <name>Highlight target</name>
+                <packageName></packageName>
+                <script>function institute_highlightTarget()
+	if id then killTrigger(id) end
+        id = tempTrigger(institute.target, [[
+                local count = 1
+                while selectString(&quot;]]..institute.target..[[&quot;,count) ~= -1 do
+                        fg(&quot;]]..institute.targetcolour..[[&quot;)
+                        resetFormat()
+                        count = count + 1
+                end
+        ]])
+end</script>
+                <eventHandlerList/>
+            </Script>
+            <Script isActive="yes" isFolder="no">
+                <name>firstToUpper</name>
+                <packageName></packageName>
+                <script>function firstToUpper(str)
+    return (str:gsub(&quot;^%l&quot;, string.upper))
+end</script>
+                <eventHandlerList/>
+            </Script>
+            <ScriptGroup isActive="yes" isFolder="yes">
+                <name>Item tracking</name>
+                <packageName></packageName>
+                <script>-------------------------------------------------
+--         Put your Lua functions here.        --
+--                                             --
+-- Note that you can also use external Scripts --
+-------------------------------------------------
+</script>
+                <eventHandlerList/>
+                <Script isActive="yes" isFolder="no">
+                    <name>gmcp_inv_list</name>
+                    <packageName></packageName>
+                    <script>function gmcp_inv_list()
+	local home = gmcp.Char.Items.List
+
+	if home.location ~= &quot;inv&quot; then return end
+
+	myinv = {}
+
+	for _, thing in ipairs(home.items) do
+		myinv[thing.name] = myinv[thing.name] or {}
+		myinv[thing.name][thing.id] = thing.attrib
+	end
+end</script>
+                    <eventHandlerList>
+                        <string>gmcp.Char.Items.List</string>
+                    </eventHandlerList>
+                </Script>
+                <Script isActive="yes" isFolder="no">
+                    <name>gmcp_inv_add</name>
+                    <packageName></packageName>
+                    <script>function gmcp_inv_add()
+	local home = gmcp.Char.Items.Add
+
+	if home.location ~= &quot;inv&quot; then return end
+
+	myinv = myinv or {}
+
+	local thing = home.item
+
+	myinv[thing.name] = myinv[thing.name] or {}
+	myinv[thing.name][thing.id] = thing.attrib
+end</script>
+                    <eventHandlerList>
+                        <string>gmcp.Char.Items.Add</string>
+                    </eventHandlerList>
+                </Script>
+                <Script isActive="yes" isFolder="no">
+                    <name>gmcp_inv_remove</name>
+                    <packageName></packageName>
+                    <script>function gmcp_inv_remove()
+	local home = gmcp.Char.Items.Remove
+
+	if home.location ~= &quot;inv&quot; then return end
+
+	myinv = myinv or {}
+
+	local thing = home.item
+
+	if not ( myinv[thing.name] and myinv[thing.name][thing.id] ) then return end
+	myinv[thing.name][thing.id] = nil
+end</script>
+                    <eventHandlerList>
+                        <string>gmcp.Char.Items.Remove</string>
+                    </eventHandlerList>
+                </Script>
+                <Script isActive="yes" isFolder="no">
+                    <name>gmcp_rift_list</name>
+                    <packageName></packageName>
+                    <script>function gmcp_rift_list()
+	myrift = {}
+	for _, thing in ipairs(gmcp.IRE.Rift.List) do
+		myrift[thing.name] = tonumber(thing.amount)
+	end
+end</script>
+                    <eventHandlerList>
+                        <string>gmcp.IRE.Rift.List</string>
+                    </eventHandlerList>
+                </Script>
+                <Script isActive="yes" isFolder="no">
+                    <name>gmcp_rift_change</name>
+                    <packageName></packageName>
+                    <script>function gmcp_rift_change()
+	myrift = myrift or {}
+
+	local thing = gmcp.IRE.Rift.Change
+
+	myrift[thing.name] = tonumber(thing.amount)
+end</script>
+                    <eventHandlerList>
+                        <string>gmcp.IRE.Rift.Change</string>
+                    </eventHandlerList>
+                </Script>
+                <Script isActive="yes" isFolder="no">
+                    <name>gmcp_mobs_list</name>
+                    <packageName></packageName>
+                    <script>function gmcp_mobs_list()
+	local home = gmcp.Char.Items.List
+
+	if home.location ~= &quot;room&quot; then return end
+
+	mobshere = {}
+
+	for _, thing in ipairs(home.items) do
+		if thing.attrib and thing.attrib:match(&quot;m&quot;) then
+			mobshere[thing.name] = myinv[thing.name] or {}
+			mobshere[thing.name][thing.id] = thing.attrib
+		end
+	end
+end</script>
+                    <eventHandlerList>
+                        <string>gmcp.Char.Items.List</string>
+                    </eventHandlerList>
+                </Script>
+                <Script isActive="yes" isFolder="no">
+                    <name>gmcp_mobs_arrive</name>
+                    <packageName></packageName>
+                    <script>function gmcp_mobs_arrive()
+	local home = gmcp.Char.Items.Add
+
+	if home.location ~= &quot;room&quot; then return end
+
+	mobshere = mobshere or {}
+
+	local thing = home.item
+
+	if thing.attrib:find(&quot;m&quot;) then
+		mobshere[thing.name] = myinv[thing.name] or {}
+		mobshere[thing.name][thing.id] = thing.attrib
+	end
+end</script>
+                    <eventHandlerList>
+                        <string>gmcp.Char.Items.Add</string>
+                    </eventHandlerList>
+                </Script>
+                <Script isActive="yes" isFolder="no">
+                    <name>gmcp_mobs_leave</name>
+                    <packageName></packageName>
+                    <script>function gmcp_mobs_leave()
+	local home = gmcp.Char.Items.Remove
+
+	if home.location ~= &quot;room&quot; then return end
+
+	mobshere = mobshere or {}
+
+	local thing = home.item
+
+	if not ( mobshere[thing.name] and mobshere[thing.name][thing.id] ) then return end
+	mobshere[thing.name][thing.id] = nil
+	if table.size(mobshere[thing.name]) == 0 then mobshere[thing.name] = nil end
+end</script>
+                    <eventHandlerList>
+                        <string>gmcp.Char.Items.Remove</string>
+                    </eventHandlerList>
+                </Script>
+                <Script isActive="yes" isFolder="no">
+                    <name>gmcp_mobs_die</name>
+                    <packageName></packageName>
+                    <script>function gmcp_mobs_die()
+	local home = gmcp.Char.Items.Update
+
+	if home.location ~= &quot;room&quot; then return end
+
+	mobshere = mobshere or {}
+
+	local thing = home.item
+	local name = thing.name:match(&quot;the corpse of (.*)&quot;)
+
+	if not ( mobshere[name] and mobshere[name][thing.id] ) then return end
+	mobshere[name][thing.id] = nil
+	if table.size(mobshere[thing.name]) == 0 then mobshere[thing.name] = nil end
+end</script>
+                    <eventHandlerList>
+                        <string>gmcp.Char.Items.Update</string>
+                    </eventHandlerList>
+                </Script>
+            </ScriptGroup>
+            <ScriptGroup isActive="yes" isFolder="yes">
+                <name>Configuration</name>
+                <packageName></packageName>
+                <script>-------------------------------------------------
+--         Put your Lua functions here.        --
+--                                             --
+-- Note that you can also use external Scripts --
+-------------------------------------------------
+</script>
+                <eventHandlerList/>
+                <Script isActive="yes" isFolder="no">
+                    <name>Load configuration from file</name>
+                    <packageName></packageName>
+                    <script>function institute_loadConfig()
+	if institute.initialized then return false end
+
+	local file = getMudletHomeDir()..&quot;\\institute.lua&quot;
+
+	if not io.exists(file) then return false end
+
+	table.load(file, institute)
+end</script>
+                    <eventHandlerList/>
+                </Script>
+                <Script isActive="yes" isFolder="no">
+                    <name>Save configuration to file</name>
+                    <packageName></packageName>
+                    <script>function institute_saveConfig()
+	table.save(getMudletHomeDir() .. &quot;\\institute.lua&quot;, institute)
+end
+</script>
+                    <eventHandlerList/>
+                </Script>
+            </ScriptGroup>
+        </ScriptGroup>
+    </ScriptPackage>
+    <KeyPackage/>
+</MudletPackage>
