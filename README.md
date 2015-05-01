@@ -1,5 +1,5 @@
 #Institute system documentation
-This system was commissioned by Portius and developed by Rialorm. It requires Vadi’s m&m to function.
+This system was commissioned by Portius and developed by Rialorm. It is developed for Mudlet and requires Vadi’s m&m to function. To install, import the XML file by opening your profile, going to scripts, and use the green import icon at the top. 
 
 ##Target
 **`t <target>`** - This alias sets and highlights your target. It only accepts a single word, so use the base noun to target mobiles. This is case sensitive, meaning if you enter “t portius” that Portius won’t be highlighted.
